@@ -40,7 +40,7 @@ class MoVoBulletEnv(gym.Env):
             p.connect(p.DIRECT)
 
         # 18 actions (servomotors)
-        self.n_actions = 18
+        self.n_actions = 18 # 7 + 7 + 3 + 1
         self.action_space = spaces.Box(low=-1, high=1,
                                        shape=(self.n_actions,),
                                        dtype="float32")

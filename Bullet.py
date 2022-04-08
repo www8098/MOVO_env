@@ -129,7 +129,6 @@ max_torque = 100
 
 # print(ik_info)
 # print for debug
-print(right_ik_joints)
 # print(p.getNumJoints(robot))
 
 while 1:
@@ -149,14 +148,16 @@ while 1:
         chassis_pos.append(p.readUserDebugParameter(chassis_bar[i]))
 
     # right_ik_joints[1:] remove the lifting mechanism
-    p.setJointMotorControlArray(bodyIndex=robot,
-                                jointIndices=right_ik_joints,
-                                controlMode=p.POSITION_CONTROL,
-                                targetPositions=right_arm_pos,
-                                forces=[max_torque for i in range(len(right_arm_pos))])
+    # p.setJointMotorControlArray(bodyIndex=robot,
+    #                             jointIndices=right_ik_joints,
+    #                             controlMode=p.POSITION_CONTROL,
+    #                             targetPositions=right_arm_pos,
+    #                             forces=[max_torque for i in range(len(right_arm_pos))])
+
+
     # set_joint_positions(robot, right_ik_joints, right_arm_pos)
     # set_joint_positions(robot, left_ik_joints, left_arm_pos)
-    # set_joint_positions(robot, chassis_ik_joints, chassis_pos)
+    set_joint_positions(robot, chassis_ik_joints, chassis_pos)
     # setCameraPicAndGetPic(robot)
 
     # p.setJointMotorControlArray(bodyIndex=robot, jointIndices=right_ik_joints, controlMode=p.POSITION_CONTROL,
